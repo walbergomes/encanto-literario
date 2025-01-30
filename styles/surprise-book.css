@@ -1,0 +1,82 @@
+section.surprise-book {
+  height: 16rem;
+
+  display: flex;
+  align-items: center;
+  
+  padding-inline: 1.25rem;
+  margin-top: 14rem;
+
+  position: relative;
+
+
+  & p {
+    color: var(--text-body);
+    font: 500 1rem/140% var(--ff-base);
+    text-align: center;
+  }
+
+  & img {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  & img[src*="mystery-crystal"] {
+    bottom: 15%;
+    right: 5%;
+    transform: rotate(25deg);
+  }
+
+  & img[src*="mystery-opened"] {
+    top: 10%;
+    right: 15%;
+    transform: rotate(25deg);
+  }
+
+  & img[src*="mystery-ouija"] {
+    bottom: 17%;
+    left: 5%;
+    transform: rotate(-25deg);
+  }
+}
+
+@media (width >= 80em) {
+  section.surprise-book {
+    height: 25rem;
+    padding-inline: 7.5rem;
+    margin-top: 34.75rem;
+
+    & p {
+      font: var(--font-subtitle);
+
+      & span {
+        color: var(--blue-light);
+      }
+    }
+  
+    & img {
+      position: absolute;
+      width: 5.5rem;
+      height: 5.5rem;
+    }
+
+    & img[src*="mystery-crystal"] {
+      bottom: 10%;
+      right: 10%;
+      transform: rotate(-15deg);
+    }
+  
+    & img[src*="mystery-opened"] {
+      top: 10%;
+      right: 52%;
+      transform: rotate(25deg);
+    }
+  
+    & img[src*="mystery-ouija"] {
+      bottom: 10%;
+      left: 5%;
+      transform: rotate(110deg);
+    }
+  }
+}

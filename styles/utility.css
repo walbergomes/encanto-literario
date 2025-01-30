@@ -1,0 +1,50 @@
+.btn-primary {
+  font: var(--button-text);
+  color: var(--text-title);
+  background-color: var(--pink-dark);
+  padding: .75rem 1.25rem;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: var(--pink-base);
+}
+
+.btn-secondary {
+  font: var(--button-text);
+  color: var(--text-title);
+  background-color: var(--blue-dark);
+  padding: .75rem 1.25rem;
+  border-radius: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--blue-mid);
+}
+
+.label {
+  color: var(--blue-light);
+  font: var(--link-text);
+}
+
+.label:hover {
+  color: var(--text-body);
+}
+
+.only-mobile {
+  display: initial;
+}
+
+.only-desktop {
+  display: none;
+}
+
+@media (width >= 80rem) {
+  .only-mobile {
+    display: none;
+  }
+
+  .only-desktop {
+    display: initial;
+  }
+}
