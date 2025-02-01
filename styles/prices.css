@@ -1,0 +1,130 @@
+section.prices {
+  margin-bottom: 6.5rem;
+
+  & > h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-body);
+  }
+
+  & .cards {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 3rem;
+    scroll-snap-type: x mandatory; /* Rolagem suave */
+    max-width: 100%;
+    scrollbar-width: none; /* Esconde no Firefox */
+
+    /* Esconde no Chrome, Safari e Edge */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  & .cards .card {
+    background-color: var(--shape-base);
+    padding: 2rem 2rem 1.5rem 2rem;
+    border-radius: 2rem;
+    border: 1px solid var(--shape-stroke);
+
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+
+    & .top span:first-of-type {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-light);
+    }
+
+    & .top .total-price {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-label);
+      display: block;
+      margin: 8px 0 5rem 0;
+    }
+
+    & .top .price {
+      color: var(--text-body);
+      font-weight: 700;
+      font: var(--font-title-md);
+
+      display: flex;
+      align-items: flex-end;
+      margin-top: 1.5rem;
+
+      & > span {
+        font-size: 1rem;
+      }
+    }
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      & li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        font-size: 0.75rem;
+        color: var(--text-body);
+
+        & img {
+          width: 0.875rem;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      margin-top: 1.5rem;
+      color: var(--text-title);
+      padding-block: 0.75rem;
+
+      background-color: var(--blue-dark);
+      border: none;
+      border-radius: 8px;
+    }
+  }
+
+  & .cards .card:nth-child(2) {
+    & .top .popular span:first-of-type {
+      color: var(--pink-light);
+    }
+
+    & .top .popular {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & span:last-child {
+        font-size: .625rem;
+        font-weight: 700;
+        color: var(--text-body);
+
+        background-color: var(--shape-stroke);
+        padding: 9px 20px;
+        border-radius: 4rem;
+      }
+    }
+
+    & .top .price > span {
+      color: var(--text-body);
+    }
+
+    & .top .total-price {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-label);
+      display: block;
+      margin: 8px 0 5rem 0;
+    }
+
+    button {
+      background-color: var(--pink-dark);
+    }
+  }
+}

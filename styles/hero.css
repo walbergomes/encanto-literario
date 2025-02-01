@@ -1,6 +1,6 @@
 section.hero {
   & h1 {
-    font: 700 1.75rem/normal var(--ff-base);
+    font: 700 1.75rem / normal var(--ff-base);
     color: var(--text-title);
     text-align: center;
 
@@ -11,7 +11,7 @@ section.hero {
   }
 
   & .join-to-club {
-    font: 400 .875rem/140% var(--ff-base);
+    font: 400 0.875rem/140% var(--ff-base);
     color: var(--text-body);
     text-align: center;
 
@@ -34,7 +34,6 @@ section.hero {
 
 @media (width > 27rem) {
   section.hero {
-
     & img[src*="hero-background"] {
       height: auto;
     }
@@ -47,7 +46,7 @@ section.hero {
       font: var(--font-title-lg);
       max-width: 40rem;
     }
-  
+
     & .join-to-club {
       font: var(--font-body-lg);
       font-weight: 400;

@@ -47,9 +47,14 @@
 body {
   font-family: var(--ff-base);
   background-color: #00050A;
+  
   overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
