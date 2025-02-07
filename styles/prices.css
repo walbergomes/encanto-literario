@@ -1,57 +1,52 @@
 section.prices {
-  margin-bottom: 6.5rem;
+  margin-bottom: 6rem;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   & > h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--text-body);
+    font: var(--font-title-sm);
+    color: var(--text-title);
   }
 
   & .cards {
-    display: flex;
-    gap: 2rem;
-    overflow-x: auto;
-    padding: 3rem;
-    scroll-snap-type: x mandatory; /* Rolagem suave */
-    max-width: 100%;
-    scrollbar-width: none; /* Esconde no Firefox */
+    min-height: 30px;
+    width: 100%;
 
-    /* Esconde no Chrome, Safari e Edge */
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    margin-top: 8rem;
   }
 
   & .cards .card {
     background-color: var(--shape-base);
-    padding: 2rem 2rem 1.5rem 2rem;
-    border-radius: 2rem;
+    padding: 2rem 2rem 1.75rem 2rem;
+    height: 25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     border: 1px solid var(--shape-stroke);
+    border-radius: 1.5rem;
 
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-
-    & .top span:first-of-type {
+    & .pricing > span:first-of-type {
       font-size: 1rem;
       font-weight: 700;
       color: var(--blue-light);
     }
 
-    & .top .total-price {
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--text-label);
-      display: block;
-      margin: 8px 0 5rem 0;
-    }
-
-    & .top .price {
-      color: var(--text-body);
-      font-weight: 700;
+    & .pricing .price {
+      color: var(--text-title);
       font: var(--font-title-md);
 
       display: flex;
       align-items: flex-end;
+
       margin-top: 1.5rem;
 
       & > span {
@@ -59,72 +54,143 @@ section.prices {
       }
     }
 
-    & ul {
+    & .pricing > span:last-child {
+      font: var(--font-body-sm);
+      color: var(--text-label);
+      font-weight: 400;
+
+      margin-top: 8px;
+    }
+
+    & .advantages {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
 
-      & li {
+      & ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      & ul li {
         display: flex;
         align-items: center;
         gap: 8px;
 
-        font-size: 0.75rem;
         color: var(--text-body);
+        font-size: 0.75rem;
+        font-weight: 400;
 
         & img {
           width: 0.875rem;
         }
       }
-    }
 
-    button {
-      width: 100%;
-      margin-top: 1.5rem;
-      color: var(--text-title);
-      padding-block: 0.75rem;
+      & button {
+        padding: 0.75rem;
+        margin-top: 1.5rem;
 
-      background-color: var(--blue-dark);
-      border: none;
-      border-radius: 8px;
+        border: none;
+        border-radius: 8px;
+
+        background-color: var(--blue-dark);
+        color: var(--text-title);
+        font-size: 0.875rem;
+      }
     }
   }
 
   & .cards .card:nth-child(2) {
-    & .top .popular span:first-of-type {
+    background-color: var(--shape-base);
+
+    & .pricing .popular {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    & .pricing .popular span:first-of-type {
       color: var(--pink-light);
     }
 
-    & .top .popular {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      & span:last-child {
-        font-size: .625rem;
-        font-weight: 700;
-        color: var(--text-body);
-
-        background-color: var(--shape-stroke);
-        padding: 9px 20px;
-        border-radius: 4rem;
-      }
-    }
-
-    & .top .price > span {
+    & .pricing .popular span:last-of-type {
       color: var(--text-body);
+      font: var(--tag-text);
+
+      padding: 9px 1.25rem;
+      background-color: var(--shape-stroke);
+      border-radius: 3rem;
     }
 
-    & .top .total-price {
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--text-label);
-      display: block;
-      margin: 8px 0 5rem 0;
-    }
-
-    button {
+    & .advantages button {
       background-color: var(--pink-dark);
     }
+  }
+}
+
+@media (width <= 48em) {
+  section.prices {
+    & .cards {
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding-inline: 3rem;
+      scroll-snap-type: x mandatory; /* Rolagem suave */
+      scrollbar-width: none; /* Esconde a barra de rolagem */
+
+      /* Esconde em navegadores webkit */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      & .card {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+      }
+    }
+  }
+}
+
+@media (width >= 80em) {
+  section.prices {
+    & .cards {
+      position: relative;
+    }
+
+    & .cards .card:nth-child(1) {
+      transform: rotate(0deg) translateX(19rem);
+      animation: promoOne 1s linear both;
+      animation-timeline: view();
+      animation-range-start: 10px;
+      animation-range-end: 50%;
+      opacity: 0;
+    }
+
+    & .cards .card:nth-child(2) {
+      position: absolute;
+    }
+
+    & .cards .card:nth-child(3) {
+      transform: rotate(0deg) translateX(-19rem);
+      animation: promoThree 1s linear both;
+      animation-timeline: view();
+      animation-range-start: 10px;
+      animation-range-end: 50%;
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes promoOne {
+  100% {
+    transform: rotate(-10deg) translateY(1rem) translateX(-12rem);
+    opacity: 1;
+  }
+}
+
+@keyframes promoThree {
+  100% {
+    transform: rotate(10deg) translateY(1rem) translateX(12rem);
+    opacity: 1;
   }
 }
